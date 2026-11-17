@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Information Website</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+        }
+
+        header {
+            background-color: #12345a;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #087e8b;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        .banner {
+            background: linear-gradient(120deg, #12345a, #087e8b);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .banner button {
+            padding: 12px 25px;
+            background-color: orange;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+
+        h2 {
+            color: #087e8b;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: white;
+            width: 280px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #cccccc;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        form {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        form button {
+            background-color: #087e8b;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #12345a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media(max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>ABC College of Technology</h1>
+    <p>Knowledge | Innovation | Excellence</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#departments">Departments</a>
+    <a href="#faculty">Faculty</a>
+    <a href="#admission">Admissions</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="banner" id="home">
+    <h1>Welcome to ABC College</h1>
+    <p>Build Your Future With Quality Education</p>
+    <button onclick="document.getElementById('admission').scrollIntoView()">
+        Apply Now
+    </button>
+</div>
+
+<section id="about">
+    <h2>About Our College</h2>
+
+    <p>
+        ABC College of Technology provides quality education
+        and encourages students to develop technical skills,
+        creativity and knowledge.
+    </p>
+
+    <p>
+        Our institution provides modern laboratories,
+        experienced faculty and a friendly learning environment.
+    </p>
+</section>
+
+<section id="departments">
+    <h2>Our Departments</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>CSE</h3>
+            <p>Computer Science and Engineering</p>
+        </div>
+
+        <div class="card">
+            <h3>AI & ML</h3>
+            <p>Artificial Intelligence and Machine Learning</p>
+        </div>
+
+        <div class="card">
+            <h3>ECE</h3>
+            <p>Electronics and Communication Engineering</p>
+        </div>
+
+        <div class="card">
+            <h3>EEE</h3>
+            <p>Electrical and Electronics Engineering</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Available Courses</h2>
+
+    <table border="1" cellpadding="12" width="100%">
+        <tr>
+            <th>Course</th>
+            <th>Duration</th>
+            <th>Qualification</th>
+        </tr>
+
+        <tr>
+            <td>B.Tech CSE</td>
+            <td>4 Years</td>
+            <td>Intermediate</td>
+        </tr>
+
+        <tr>
+            <td>B.Tech AI & ML</td>
+            <td>4 Years</td>
+            <td>Intermediate</td>
+        </tr>
+
+        <tr>
+            <td>B.Tech ECE</td>
+            <td>4 Years</td>
+            <td>Intermediate</td>
+        </tr>
+    </table>
+</section>
+
+<section id="faculty">
+    <h2>Our Faculty</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Dr. Ramesh</h3>
+            <p>Head of Computer Science Department</p>
+        </div>
+
+        <div class="card">
+            <h3>Mrs. Priya</h3>
+            <p>AI & ML Faculty</p>
+        </div>
+
+        <div class="card">
+            <h3>Mr. Kumar</h3>
+            <p>Electronics Faculty</p>
+        </div>
+    </div>
+</section>
+
+<section id="admission">
+    <h2>Admission Form</h2>
+
+    <form onsubmit="alert('Application submitted successfully!'); return false;">
+        <input type="text" placeholder="Student Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Mobile Number"
+        pattern="[0-9]{10}" required>
+
+        <select required>
+            <option value="">Select Department</option>
+            <option>CSE</option>
+            <option>AI & ML</option>
+            <option>ECE</option>
+            <option>EEE</option>
+        </select>
+
+        <button type="submit">Submit Application</button>
+    </form>
+</section>
+
+<section id="contact">
+    <h2>Contact Information</h2>
+
+    <p>Address: Andhra Pradesh, India</p>
+    <p>Email: info@abccollege.edu.in</p>
+    <p>Phone: 9876543210</p>
+</section>
+
+<footer>
+    <p>© 2026 ABC College of Technology</p>
+    <p>Education for a Better Future</p>
+</footer>
+
+</body>
+</html>

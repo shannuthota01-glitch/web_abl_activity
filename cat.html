@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Library Management</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f3ef;
+        }
+
+        header {
+            background-color: #392b22;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background-color: #795548;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        .welcome {
+            background-color: #e8d5c4;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .search {
+            text-align: center;
+            padding: 20px;
+        }
+
+        input, select {
+            padding: 12px;
+            margin: 5px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #795548;
+        }
+
+        .book-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 20px;
+            padding: 25px;
+        }
+
+        .book {
+            background-color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px #cccccc;
+            transition: 0.3s;
+        }
+
+        .book:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 15px #999999;
+        }
+
+        .book img {
+            width: 130px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .available {
+            color: green;
+            font-weight: bold;
+        }
+
+        .unavailable {
+            color: red;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #795548;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #392b22;
+        }
+
+        footer {
+            background-color: #392b22;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Digital Library</h1>
+    <p>Your Gateway to Knowledge</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#books">Books</a>
+    <a href="#categories">Categories</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="welcome" id="home">
+    <h1>Welcome to Our Library</h1>
+    <p>Explore books and improve your knowledge.</p>
+</div>
+
+<div class="search">
+    <h2>Search Books</h2>
+
+    <input type="text" id="searchBox"
+    placeholder="Enter book name or author..."
+    onkeyup="searchBooks()">
+
+    <select id="categoryFilter" onchange="searchBooks()">
+        <option value="all">All Categories</option>
+        <option value="programming">Programming</option>
+        <option value="science">Science</option>
+        <option value="fiction">Fiction</option>
+    </select>
+</div>
+
+<section id="books">
+    <h2>Available Books</h2>
+
+    <div class="book-container">
+
+        <div class="book" data-category="programming">
+            <img src="https://covers.openlibrary.org/b/isbn/9780131103627-L.jpg"
+            alt="C Programming Book">
+
+            <h3>C Programming</h3>
+            <p>Author: Dennis Ritchie</p>
+            <p>Category: Programming</p>
+            <p class="available">Available</p>
+            <button onclick="alert('C Programming selected!')">
+                View Book
+            </button>
+        </div>
+
+        <div class="book" data-category="programming">
+            <img src="https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg"
+            alt="Python Book">
+
+            <h3>Python Programming</h3>
+            <p>Author: Eric Matthes</p>
+            <p>Category: Programming</p>
+            <p class="available">Available</p>
+            <button onclick="alert('Python Programming selected!')">
+                View Book
+            </button>
+        </div>
+
+        <div class="book" data-category="science">
+            <img src="https://covers.openlibrary.org/b/isbn/9780134093413-L.jpg"
+            alt="Science Book">
+
+            <h3>Computer Science</h3>
+            <p>Author: Various Authors</p>
+            <p>Category: Science</p>
+            <p class="unavailable">Not Available</p>
+            <button onclick="alert('Computer Science selected!')">
+                View Book
+            </button>
+        </div>
+
+        <div class="book" data-category="fiction">
+            <img src="https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg"
+            alt="The Great Gatsby">
+
+            <h3>The Great Gatsby</h3>
+            <p>Author: F. Scott Fitzgerald</p>
+            <p>Category: Fiction</p>
+            <p class="available">Available</p>
+            <button onclick="alert('The Great Gatsby selected!')">
+                View Book
+            </button>
+        </div>
+
+        <div class="book" data-category="science">
+            <img src="https://covers.openlibrary.org/b/isbn/9780596007126-L.jpg"
+            alt="Learning Science">
+
+            <h3>Computer Knowledge</h3>
+            <p>Author: Charles Severance</p>
+            <p>Category: Science</p>
+            <p class="available">Available</p>
+            <button onclick="alert('Computer Knowledge selected!')">
+                View Book
+            </button>
+        </div>
+
+        <div class="book" data-category="fiction">
+            <img src="https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg"
+            alt="Pride and Prejudice">
+
+            <h3>Pride and Prejudice</h3>
+            <p>Author: Jane Austen</p>
+            <p>Category: Fiction</p>
+            <p class="available">Available</p>
+            <button onclick="alert('Pride and Prejudice selected!')">
+                View Book
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<section id="categories">
+    <h2>Library Categories</h2>
+
+    <ul>
+        <li>Programming Books</li>
+        <li>Science Books</li>
+        <li>Fiction Books</li>
+        <li>Educational Books</li>
+        <li>Technology Books</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Contact Library</h2>
+    <p>Email: library@example.com</p>
+    <p>Phone: 9876543210</p>
+    <p>Opening Hours: 9 AM to 5 PM</p>
+</section>
+
+<footer>
+    <p>© 2026 Digital Library Management</p>
+    <p>Read More, Learn More!</p>
+</footer>
+
+<script>
+    function searchBooks() {
+
+        let search = document.getElementById("searchBox")
+        .value.toLowerCase();
+
+        let category = document.getElementById("categoryFilter")
+        .value;
+
+        let books = document.querySelectorAll(".book");
+
+        books.forEach(function(book) {
+
+            let name = book.innerText.toLowerCase();
+            let bookCategory = book.dataset.category;
+
+            if(name.includes(search) &&
+            (category === "all" || category === bookCategory)) {
+
+                book.style.display = "block";
+
+            } else {
+
+                book.style.display = "none";
+
+            }
+
+        });
+    }
+</script>
+
+</body>
+</html>
